@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SoNguyeTo</title>
+</head>
+<body>
+<input type="text" id ="number1">
+<button onclick="countPrime()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function isPrime(a) {
+        if(a <= 1){
+            return false;
+        }
+        else {
+            if( a <= 3) return true;
+            else{
+                for (let i =2; i <= (a/2); i ++) {
+                    if ((a%i) === 0){
+                        return  false
+                    }
+                }
+                return true
+            }
+        }
+    }
+        function  checkPrime() {
+            let number = parseInt(document.getElementById("number1").value);
+            if (isPrime(number)) {
+                document.getElementById("result").innerText = number +" là số ngyên tố";
+            }
+            else {
+                document.getElementById('result').innerText = number + " không là số nguyên tố";
+            }
+        }
+    function countPrime() {
+        let sumofCount = parseInt(document.getElementById("number1").value);
+        let count = 0;
+        let i = 2;
+        let result = "";
+        while (count <= 20){
+            if (isPrime(i)){
+                result += i+ ";";
+                count ++;
+            }
+            i++;
+        }
+        document.getElementById("result").innerText = result;
+    }
+</script>
+</body>
+</html>
